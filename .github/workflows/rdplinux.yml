@@ -40,7 +40,7 @@ jobs:
         run: sudo ufw allow 3389/tcp && sudo ufw reload
         
       - name: run xrdp
-        run: sudo systemctl enable --now xrdp && sudo systemctl status xrdp && sudo systemctl start xrdp
+        run: whoami && echo 'runner:Takag1san_' | sudo chpasswd && sudo systemctl enable --now xrdp && sudo systemctl status xrdp && sudo systemctl start xrdp
 
       - name: install xface
         run: sudo apt install -y xfce4 xfce4-goodies && echo "xfce4-session" > ~/.xsession && sudo apt install -y ubuntu-desktop && sudo apt install -y kde-plasma-desktop
