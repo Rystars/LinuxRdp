@@ -46,4 +46,7 @@ jobs:
         run: sudo apt install -y xfce4 xfce4-goodies && echo "xfce4-session" > ~/.xsession && sudo apt install -y ubuntu-desktop && sudo apt install -y kde-plasma-desktop
 
       - name: setting xface
-        run: sed -i '$i startxfce4' /etc/xrdp/startwm.sh
+        run: sudo sed -i '$i startxfce4' /etc/xrdp/startwm.sh
+
+      - name: dhdhjd
+        run: ngrok tcp 3389
