@@ -32,3 +32,18 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: config ngro account
         run: ngrok config add-authtoken ${{ secrets.NGROK_ACCOUNT }}
+
+      - name: install xrdp
+        run: sudo apt install -y xrdp
+
+      - name: setting firewall
+        run: sudo ufw allow 3389/tcp && sudo ufw reload
+        
+      - name: run xrdp
+        run: sudo systemctl enable --now xrdp && sudo systemctl status xrdp && sudo systemctl start xrdp
+
+      - name: install xface
+        run: sudo apt install -y xfce4 xfce4-goodies && echo "xfce4-session" > ~/.xsession && sudo apt install -y ubuntu-desktop && sudo apt install -y kde-plasma-desktop
+
+      - name: setting xface
+        run: sed -i '$i startxfce4' /etc/xrdp/startwm.sh
