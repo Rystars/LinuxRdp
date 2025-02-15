@@ -27,8 +27,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: getngerok
-        run: sudo apt update && sudo apt upgrade && wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz && tar -xf ngrok-v3-stable-linux-arm64.tgz
+        run: sudo apt update && sudo apt upgrade && wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz && sudo tar -xvzf ngrok-v3-stable-linux-arm64.tgz -C /usr/bin
 
       # Runs a set of commands using the runners shell
       - name: config ngro account
-        run: ngrok config add-authtoken ${{ secrets.NGROK_ACCOUNT }}
+        run: ./ngrok config add-authtoken ${{ secrets.NGROK_ACCOUNT }}
